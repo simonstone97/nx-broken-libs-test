@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/lib-two",
+  "sourceRoot": "libs/lib-two/src",
+  "prefix": "test-repo",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/lib-two"],
+      "options": {
+        "project": "libs/lib-two/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/lib-two/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/lib-two/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/lib-two"],
+      "options": {
+        "jestConfig": "libs/lib-two/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/lib-two/src/**/*.ts",
+          "libs/lib-two/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

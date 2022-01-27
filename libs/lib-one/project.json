@@ -1,0 +1,42 @@
+{
+  "projectType": "library",
+  "root": "libs/lib-one",
+  "sourceRoot": "libs/lib-one/src",
+  "prefix": "test-repo",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:ng-packagr-lite",
+      "outputs": ["dist/libs/lib-one"],
+      "options": {
+        "project": "libs/lib-one/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/lib-one/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/lib-one/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/lib-one"],
+      "options": {
+        "jestConfig": "libs/lib-one/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/lib-one/src/**/*.ts",
+          "libs/lib-one/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

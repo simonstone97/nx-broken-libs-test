@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "lib-one": "libs/lib-one",
+    "lib-two": "libs/lib-two"
+  }
+}
